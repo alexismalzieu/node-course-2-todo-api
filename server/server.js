@@ -10,8 +10,6 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post('/todos',(req, res) =>{
-    console.log(req.body);
-
     var todo = new Todo({
         text: req.body.text
     });
@@ -27,3 +25,5 @@ app.post('/todos',(req, res) =>{
 app.listen(5000, ()=>{
     console.log('Started listening on port 5000');
 })
+
+module.exports = {app};
