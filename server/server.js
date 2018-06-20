@@ -8,6 +8,8 @@ const {User} = require('./models/user');
 
 const app = express();
 
+const PORT = process.env.PORT || 5000;
+
 app.use(bodyParser.json());
 
 app.post('/todos',(req, res) =>{
@@ -42,7 +44,7 @@ app.get('/todos/:id', (req, res) => {
         if(!todo){
             return res.status(404).send();
         }
-        
+
         res.send({todo})
 
     }, (err) => {
@@ -50,8 +52,8 @@ app.get('/todos/:id', (req, res) => {
     });
 });
 
-app.listen(5000, ()=>{
-    console.log('Started listening on port 5000');
+app.listen(PORT, ()=>{
+    console.log(`Started listening on port ${PORT}`);
 })
 
 module.exports = {app};
