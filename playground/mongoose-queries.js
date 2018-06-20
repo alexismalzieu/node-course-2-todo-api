@@ -1,8 +1,16 @@
-const {ObjectId} = require('mongodb');
+const {
+    ObjectId
+} = require('mongodb');
 
-const {mongoose} = require('./../server/db/mongoose');
-const {Todo} = require('./../server/models/todo');
-const {User} = require('./../server/models/user');
+const {
+    mongoose
+} = require('./../server/db/mongoose');
+const {
+    Todo
+} = require('./../server/models/todo');
+const {
+    User
+} = require('./../server/models/user');
 
 // var id = '16b27853f6f9b1f0fdd1b8d84';
 //
@@ -32,7 +40,7 @@ const {User} = require('./../server/models/user');
 var userID = '5b1fe403db6d691599a23f14';
 
 User.findById(userID).then((user) => {
-    if(!user){
+    if (!user) {
         return console.log('User not found');
     }
     console.log('UserById', user);
