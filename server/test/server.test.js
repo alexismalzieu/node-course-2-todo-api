@@ -1,6 +1,7 @@
 const expect = require('chai').expect
 const request = require('supertest');
 const {ObjectId} = require('mongodb');
+const config = require('./config/config.js');
 
 const {app} = require('./../server')
 const {Todo} = require('./../models/todo')
