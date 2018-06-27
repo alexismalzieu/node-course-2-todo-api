@@ -81,7 +81,7 @@ app.patch('/todos/:id', (req, res) => {
     if(!ObjectId.isValid(id)){
         return res.status(404).send();
     }
-    console.log('req.body: ',req.body);
+    console.log('req: ',req.body);
 
     console.log('body: ',body);
     console.log('body.completed: ',body.completed);
@@ -91,6 +91,7 @@ app.patch('/todos/:id', (req, res) => {
     } else {
         body.comleted = false;
         body.completedAt = null;
+
     }
 
     Todo.findByIdAndUpdate(id, {$set: body}, {new: true}).then((todo) => {
