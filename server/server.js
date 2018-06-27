@@ -3,13 +3,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const {ObjectId} = require('mongodb');
 
+const config = require('./config/config.js');
 const {mongoose} = require("./db/mongoose");
 const {Todo} = require('./models/todo');
 const {User} = require('./models/user');
 
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 app.use(bodyParser.json());
 
@@ -81,10 +82,6 @@ app.patch('/todos/:id', (req, res) => {
     if(!ObjectId.isValid(id)){
         return res.status(404).send();
     }
-    console.log('req: ',req.body);
-
-    console.log('body: ',body);
-    console.log('body.completed: ',body.completed);
 
     if(_.isBoolean(body.completed) && body.completed) {
         body.completedAt = new Date().getTime();
