@@ -1,5 +1,8 @@
 const env = process.env.NODE_ENV || "development";
 
+console.log("***** TEST CONFIG JS");
+
+
 if(env === 'development'){
     process.env.PORT = 5000;
     process.env.MONGODB_URI = 'mongodb://alexismalzieu:udemytodoapp59112@ds263740.mlab.com:63740/todoapp_udemy';
