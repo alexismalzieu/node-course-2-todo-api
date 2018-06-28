@@ -4,7 +4,7 @@ console.log("***** TEST CONFIG JS");
 
 console.log("***** env = ", env);
 
-if(env === 'development'){
+if(env === 'development' || env === 'production'){
     process.env.PORT = 5000;
     process.env.MONGODB_URI = 'mongodb://alexismalzieu:udemytodoapp59112@ds263740.mlab.com:63740/todoapp_udemy';
 } else if (env == 'test') {
