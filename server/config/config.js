@@ -7,6 +7,5 @@ if(env === 'development'){
 }else if (env == 'test') {
     process.env.PORT = 5000;
     process.env.MONGODB_URI =
-    'mongodb://alexismalzieu:udemytodoapp59112@ds121251.mlab.com:21251/test_todoapp_udemy';
-
+    'mongodb://alexismalzieu:udemytodoapp59112@ds121251.mlab.com:21251/test_todoapp_udemy';    
 }
