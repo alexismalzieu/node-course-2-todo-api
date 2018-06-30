@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
-console.log("***** TEST MONGOOSE");
-
 mongoose.Promise = global.Promise;
-
-console.log("**** process.env.MONGODB_URI = ", process.env.MONGODB_URI);
 
 mongoose.connect(process.env.MONGODB_URI)
 .then((connection) => {

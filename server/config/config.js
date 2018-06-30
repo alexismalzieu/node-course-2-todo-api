@@ -1,8 +1,5 @@
 const env = process.env.NODE_ENV || "development";
 
-console.log("***** TEST CONFIG JS");
-
-console.log("***** env = ", env);
 
 if(env === 'development'){
     process.env.PORT = 5000;
