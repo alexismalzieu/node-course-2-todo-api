@@ -49,7 +49,7 @@ UserSchema.methods.generateAuthToken = function () {
     var user = this;
 
     var access = 'auth';
-    var token = jwt.sign({_id: user._id.toHexString(), access}, 'some secret').toString();
+    var token = jwt.sign({_id: user._id.toHexString(), access}, 'secret').toString();
 
     user.tokens = user.tokens.concat([{access, token}]);
 
@@ -63,7 +63,7 @@ UserSchema.statics.findByToken = function (token) {
     var decoded;
 
     try {
-        decoded = jwt.verify(token, 'some secret')
+        decoded = jwt.verify(token, 'secret')
     } catch (e) {
         return Promise.reject();
     }
@@ -85,8 +85,7 @@ UserSchema.pre('save', function (next) {
 
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(password, salt, (err,hash) => {
-                console.log('hash: ',hash);
-                user.password = hash
+                user.password = hash;
                 next();
             });
         });
